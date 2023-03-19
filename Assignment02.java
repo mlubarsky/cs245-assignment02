@@ -13,7 +13,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Assignment01 {
+public class Assignment02 {
 	
 	/**
      * Read and print the contents of the tags.csv file

@@ -3,15 +3,10 @@
  *
  * @author Maxwell Lubarsky 3/31/23
  */
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -22,8 +17,8 @@ public class Assignment02 {
 	
 	/**
      * Read and print the contents of CSV file
-     * @param file -> Pass in the CSV file
-     * @return -> List that contains each line of the file read 
+     * @param file - Pass in the CSV file
+     * @return - List that contains each line of the file read 
      */  
 	public static void readFile(String file) {
         try (CSVParser parser = new CSVParser(new FileReader(file), CSVFormat.DEFAULT)) {
@@ -46,6 +41,7 @@ public class Assignment02 {
 		readFile(file);
 		
 		ArrayList<Assignment02> arr = new ArrayList<>();
+		arr.add("hello");
 		
 	}	
 }

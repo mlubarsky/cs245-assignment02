@@ -12,9 +12,9 @@ public class ArrayList<T> implements List<T> {
 			return size;
 		}
 		
-		public T get(int pos) throws Exception {
+		public T get(int pos) {
 			if (pos < 0 || pos >= size)
-				throw new Exception("Invalid position");
+				throw new RuntimeException("Invalid position");
 			return arr[pos];
 		}
 		
@@ -32,9 +32,9 @@ public class ArrayList<T> implements List<T> {
 			++size;
 		}
 		
-		public void remove(int pos) throws Exception {
+		public void remove(int pos) {
 			if (pos < 0 || pos >= size)
-				throw new Exception("Invalid position");
+				throw new RuntimeException("Invalid position");
 			System.arraycopy(arr, pos + 1, arr, pos, size - pos - 1);
 	        arr[--size] = null;
 		}

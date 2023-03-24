@@ -55,7 +55,7 @@ public class ArrayList<T> implements List<T> {
     }
 
     private void grow_array() {
-        int newSize = size * 2; //Doubling array [instructor said it was arbitrary]
+        int newSize = size * 2; //Doubling array
 
         Object[] copy = new Object[newSize]; //temporary array meant for copying
 
@@ -65,14 +65,12 @@ public class ArrayList<T> implements List<T> {
         }
         arr = copy; //Update arr
     }
-    static class MyArrayListIterator<T> implements listIterator<T> {
-
+    static class arrayListIterator<T> implements listIterator<T> {
         private int nextIndex;
 
-        public MyArrayListIterator(){
+        public arrayListIterator(){
             nextIndex = 0;
         }
-
 
         @Override
         public boolean hasNext() {

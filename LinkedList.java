@@ -1,46 +1,79 @@
 public class LinkedList<T> implements List<T> {
 	private int size;
+	public Node<T> head;
 	
-    public static class LLN {
-        int val;
-        LLN next;
+    public class Node<T> {
+        T data;
+        Node<T> next;
 
-        LLN() {
-        }
-
-        LLN(int val) {
-            this.val = val;
-        }
-
-        LLN(int val, LLN next) {
-            this.val = val;
-            this.next = next;
+        public Node(T value) {
+        	data = value;
+        	next = null;
         }
     }
-    public LLN head;
-
+    
     public LinkedList() {
-        this.head = new LLN();
+        head = null;
+        size = 0;
     }
 	
-    //TODO: Implement
 	public int size() {
-		return 0;
+		return size;
 	}
-	//TODO: Implement
+	
 	public T get(int pos) {
-		return null;
+		Node<T> curr = head;
+		for (int i = 0; i < pos; i++)
+			curr = curr.next;
+		return curr.data;
 	}
-	//TODO: Implement
+	
 	public boolean add(T item) {
-		return false;
+		if (head == null) {
+			head = new Node<T>(item);
+			++size;
+			return true;
+		}
+		Node<T> prev = head;
+		for (int i = 0; i < size; i++)
+			prev = prev.next;
+		Node<T> node = new Node<T>(item);
+		prev.next = node;
+		++size;
+		return true;
 	}
-	//TODO: Implement
+	
 	public void add(int pos, T item) {
-		
+		if (pos == 0) {
+			Node<T> node = new Node<T>(item);
+			node.next = head;
+			head = node;
+			++size;
+		} else {
+			Node<T> prev = head;
+			for (int i = 0; i < pos - 1; i++)
+				prev = prev.next;
+			Node<T> node = new Node<T>(item);
+			node.next = prev.next;
+			prev.next = node;
+			++size;
+		}
 	}
-	//TODO: Implement
-	public void remove(int pos) {
-		
+	
+	public T remove(int pos) {
+		if (pos == 0) {
+			Node<T> node = head;
+			head = head.next;
+			--size;
+			return (T) node.data;
+		} else {
+			Node<T> prev = head;
+			for (int i = 0; i< pos - 1; i++)
+				prev = prev.next;
+			Node<T> node = prev.next;
+			prev.next = node.next;
+			--size;
+			return node.data;
+		}
 	}
 }

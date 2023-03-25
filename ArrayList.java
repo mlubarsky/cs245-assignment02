@@ -1,10 +1,10 @@
 public class ArrayList<T> implements List<T> {
 
-    static Object[] arr;
-    static int size;
+    T[] arr;
+    int size;
 
     public ArrayList() {
-        arr = new Object[10]; //Initial Array Declared with size 10
+        arr = (T[]) new Object[10]; //Initial Array Declared with size 10
         size = 0;
     }
     
@@ -34,7 +34,7 @@ public class ArrayList<T> implements List<T> {
     @Override
     public T remove(int pos) {
 
-        Object[] copy = new Object[size-1]; //temporary array to be copied
+        T[] copy = (T[]) new Object[size-1]; //temporary array to be copied
 
         int j=0; //Initializing copy-iterator index
 
@@ -57,7 +57,7 @@ public class ArrayList<T> implements List<T> {
     private void grow_array() {
         int newSize = size * 2; //Doubling array
 
-        Object[] copy = new Object[newSize]; //temporary array meant for copying
+        T[] copy = (T[]) new Object[newSize]; //temporary array meant for copying
 
         for (int i = 0; i < size; i++)
         {
@@ -65,7 +65,8 @@ public class ArrayList<T> implements List<T> {
         }
         arr = copy; //Update arr
     }
-    static class arrayListIterator<T> implements listIterator<T> {
+    
+    class arrayListIterator<T> implements listIterator<T> {
         private int nextIndex;
 
         public arrayListIterator(){

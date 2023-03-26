@@ -1,5 +1,4 @@
 public class ArrayList<T> implements List<T> {
-
     T[] arr;
     int size;
 
@@ -24,28 +23,28 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public void add(int pos, T item) {
-        for(int i = size; i > pos;i--){
+        for(int i = size; i > pos; i--) {
             arr[i] = arr[i-1]; //Shifting elements by one
         }
-        arr[pos]=item;
+        arr[pos] = item;
         size++;
     }
 
     @Override
     public T remove(int pos) {
 
-        T[] copy = (T[]) new Object[size-1]; //temporary array to be copied
+        T[] copy = (T[]) new Object[size]; //temporary array to be copied
 
-        int j=0; //Initializing copy-iterator index
+        int j = 0; //Initializing copy-iterator index
 
-        for(int i=0; i<size;i++){
-            if(i!=pos){ //ignore the element at pos
+        for (int i = 0; i < size; i++){ 
+            if (i != pos) { //ignore the element at pos
                 copy[j++] = arr[i];
             }
         }
         T return_obj = (T) arr[pos]; //Object to be returned
         arr = copy;
-        size--;
+        --size;
         return return_obj;
     }
 
@@ -59,8 +58,7 @@ public class ArrayList<T> implements List<T> {
 
         T[] copy = (T[]) new Object[newSize]; //temporary array meant for copying
 
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             copy[i] = arr[i];
         }
         arr = copy; //Update arr
@@ -69,13 +67,13 @@ public class ArrayList<T> implements List<T> {
     class arrayListIterator<T> implements listIterator<T> {
         private int nextIndex;
 
-        public arrayListIterator(){
+        public arrayListIterator() {
             nextIndex = 0;
         }
 
         @Override
         public boolean hasNext() {
-            return nextIndex>=0 && nextIndex<size;
+            return nextIndex >= 0 && nextIndex < size;
         }
         @Override
         public T next() {
@@ -83,7 +81,7 @@ public class ArrayList<T> implements List<T> {
         }
         @Override
         public void reset() {
-            nextIndex=0;
+            nextIndex = 0;
         }
     }
 }

@@ -7,12 +7,10 @@ public class ArrayList<T> implements List<T> {
         size = 0;
     }
     
-    @Override
     public T get(int pos) {
         return (T) arr[pos];
     }
     
-    @Override
     public boolean add(T item) {
         if (size == arr.length) { //If we have an array overflow
             grow_array();
@@ -21,7 +19,6 @@ public class ArrayList<T> implements List<T> {
         return false;
     }
 
-    @Override
     public void add(int pos, T item) {
         for(int i = size; i > pos; i--) {
             arr[i] = arr[i-1]; //Shifting elements by one
@@ -30,7 +27,6 @@ public class ArrayList<T> implements List<T> {
         size++;
     }
 
-    @Override
     public T remove(int pos) {
 
         T[] copy = (T[]) new Object[size]; //temporary array to be copied
@@ -48,7 +44,6 @@ public class ArrayList<T> implements List<T> {
         return return_obj;
     }
 
-    @Override
     public int size() {
         return size;
     }
@@ -71,15 +66,14 @@ public class ArrayList<T> implements List<T> {
             nextIndex = 0;
         }
 
-        @Override
         public boolean hasNext() {
             return nextIndex >= 0 && nextIndex < size;
         }
-        @Override
+        
         public T next() {
             return (T) arr[nextIndex++];
         }
-        @Override
+        
         public void reset() {
             nextIndex = 0;
         }

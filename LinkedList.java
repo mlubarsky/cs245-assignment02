@@ -2,15 +2,9 @@ public class LinkedList<T> implements List<T> {
 	private int size;
 	public Node<T> head;
 	
-    public class Node<T> {
-        T data;
-        Node<T> next;
-
-        public Node(T value) {
-        	data = value;
-        	next = null;
-        }
-    }
+	public Node<T> getHead(){
+		return head;
+	}
     
     public LinkedList() {
         head = null;
@@ -34,11 +28,9 @@ public class LinkedList<T> implements List<T> {
 			++size;
 			return true;
 		}
-		Node<T> prev = head;
-		for (int i = 0; i < size; i++)
-			prev = prev.next;
 		Node<T> node = new Node<T>(item);
-		prev.next = node;
+		node.next = head;
+		head = node;
 		++size;
 		return true;
 	}
@@ -77,9 +69,9 @@ public class LinkedList<T> implements List<T> {
 		}
 	}
 	
-	private class linkedListIterator<T> implements listIterator<T>{
+	public class linkedListIterator<T> implements listIterator<T>{
 		Node<T> node = (Node<T>) head;
-		private int nextIndex;
+		public int nextIndex;
 
         public linkedListIterator() {
             nextIndex = 0;

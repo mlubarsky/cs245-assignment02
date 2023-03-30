@@ -1,14 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Data<T> {
     private T naicsCode;
     private T zipCode;
     private T businessName;
     private T neighborhood;
+    private T endDate;
+    private T startDate;
     
-    public Data(T _naicsCode, T _zipCode, T _businessName, T _neighborhood){
+    public Data(T _naicsCode, T _zipCode, T _businessName, T _neighborhood, T _endDate, T _startDate){
     	setNaicsCode(_naicsCode);
     	setZipCode(_zipCode);
     	setBusinessName(_businessName);
     	setNeighborhood(_neighborhood);
+    	setEndDate(_endDate);
+    	setStartDate(_startDate);
     }
 
     public boolean naicsCodeInRange(String _naicsCode) {
@@ -22,7 +29,7 @@ public class Data<T> {
 		int naicsTarget = Integer.parseInt(_naicsCode);
 		return naicsTarget >= naicsCodeLowerBound && naicsTarget <= naicsCodeUpperBound;
     }
-    	
+   
     public T getNaicsCode() {
         return naicsCode;
     }
@@ -53,5 +60,21 @@ public class Data<T> {
 
     public void setNeighborhood(T data) {
         this.neighborhood = data;
+    }
+    
+    public T getEndDate() {
+    	return endDate;
+    }
+    
+    public void setEndDate(T data) {
+    	this.endDate = data;
+    }
+    
+    public T getStartDate() {
+    	return startDate;
+    }
+    
+    public void setStartDate(T data) {
+    	this.startDate = data;
     }
 }

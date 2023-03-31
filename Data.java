@@ -17,6 +17,11 @@ public class Data<T> {
     	setBusinessType(_businessType);
     }
 
+    /**
+     * Helper method to find out if the NAICS is in the range
+     * @param _naicsCode - NAICS code
+     * @return - True if the NAICS code is in the range of the lower and upper bounds
+     */
     public boolean naicsCodeInRange(String _naicsCode) {
     	if (naicsCode == "")
     		return false;

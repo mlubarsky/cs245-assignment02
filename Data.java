@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Data<T> {
     private T naicsCode;
     private T zipCode;
@@ -8,14 +5,16 @@ public class Data<T> {
     private T neighborhood;
     private T endDate;
     private T startDate;
+    private T businessType;
     
-    public Data(T _naicsCode, T _zipCode, T _businessName, T _neighborhood, T _endDate, T _startDate){
+    public Data(T _naicsCode, T _zipCode, T _businessName, T _neighborhood, T _endDate, T _startDate, T _businessType){
     	setNaicsCode(_naicsCode);
     	setZipCode(_zipCode);
     	setBusinessName(_businessName);
     	setNeighborhood(_neighborhood);
     	setEndDate(_endDate);
     	setStartDate(_startDate);
+    	setBusinessType(_businessType);
     }
 
     public boolean naicsCodeInRange(String _naicsCode) {
@@ -38,8 +37,8 @@ public class Data<T> {
         this.naicsCode = data;
     }
     
-    public String getZipCode() {
-        return (String) zipCode;
+    public T getZipCode() {
+        return zipCode;
     }
 
     public void setZipCode(T data) {
@@ -76,5 +75,13 @@ public class Data<T> {
     
     public void setStartDate(T data) {
     	this.startDate = data;
+    }
+    
+    public T getBusinessType() {
+    	return businessType;
+    }
+    
+    public void setBusinessType(T data) {
+    	this.businessType = data;
     }
 }

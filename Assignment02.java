@@ -231,17 +231,15 @@ public class Assignment02 {
 			System.out.println("Neighborhoods: " + matchingNeighborhoods.size());
 		} else {
 			Node<Data> currentNode = dataArray.getHead();
-			System.out.println("got here 1");
 			while (currentNode != null) {
-				System.out.println("got here 2");
 				if (!currentNode.data.getEndDate().equals(""))
 					closedCount++;
-				System.out.println("got here 3");
 				String [] startDateSplit = ((String) currentNode.data.getStartDate()).split("/");
 				if(startDateSplit[2].equals("2022") || startDateSplit[2].equals("2023"))
 					lastYearCount++;
-				System.out.println("got here 4");
+				currentNode = currentNode.next;
 			}	
+			
 			System.out.println("Total Businesses: " + dataArray.size());	
 			System.out.println("Closed Businesses: " + closedCount);
 			System.out.println("New Businesses in last year: " + lastYearCount);

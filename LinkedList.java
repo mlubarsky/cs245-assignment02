@@ -68,4 +68,23 @@ public class LinkedList<T> implements List<T> {
 			return node.data;
 		}
 	}
+	
+	public class linkedListIterator<T> implements ListIterator<T>{
+		Node<T> node = (Node<T>) head;
+		public int nextIndex;
+
+        public linkedListIterator() { //constructor
+            nextIndex = 0;
+        }
+		
+		public boolean hasNext () { //
+			return node.next != null;
+		}
+		
+		public T next () { //return data and advance
+			Node<T> prev = node;
+			node = node.next;
+			return prev.data;
+		}
+	}
 }

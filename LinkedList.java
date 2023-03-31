@@ -2,28 +2,28 @@ public class LinkedList<T> implements List<T> {
 	private int size;
 	public Node<T> head;
 	
-	public Node<T> getHead(){
+	public Node<T> getHead(){  //returns the head of linked list
 		return head;
 	}
     
-    public LinkedList() {
+    public LinkedList() { //linked list constructor
         head = null;
         size = 0;
     }
 	
-	public int size() {
+	public int size() { //returns size of linked list
 		return size;
 	}
 	
-	public T get(int pos) {
+	public T get(int pos) { //returns element at specified index
 		Node<T> curr = head;
 		for (int i = 0; i < pos; i++)
 			curr = curr.next;
 		return curr.data;
 	}
 	
-	public boolean add(T item) {
-		if (head == null) {
+	public boolean add(T item) { //add new element to the front default
+		if (head == null) { //check if no node
 			head = new Node<T>(item);
 			++size;
 			return true;
@@ -35,13 +35,13 @@ public class LinkedList<T> implements List<T> {
 		return true;
 	}
 	
-	public void add(int pos, T item) {
-		if (pos == 0) {
+	public void add(int pos, T item) { //add new element to a specified position
+		if (pos == 0) { //adding to the first spot
 			Node<T> node = new Node<T>(item);
 			node.next = head;
 			head = node;
 			++size;
-		} else {
+		} else { //any other spot
 			Node<T> prev = head;
 			for (int i = 0; i < pos - 1; i++)
 				prev = prev.next;
@@ -52,8 +52,8 @@ public class LinkedList<T> implements List<T> {
 		}
 	}
 	
-	public T remove(int pos) {
-		if (pos == 0) {
+	public T remove(int pos) { //remove element from specified position
+		if (pos == 0) { //front of list
 			Node<T> node = head;
 			head = head.next;
 			--size;
@@ -73,22 +73,18 @@ public class LinkedList<T> implements List<T> {
 		Node<T> node = (Node<T>) head;
 		public int nextIndex;
 
-        public linkedListIterator() {
+        public linkedListIterator() { //constructor
             nextIndex = 0;
         }
 		
-		public boolean hasNext () {
+		public boolean hasNext () { //
 			return node.next != null;
 		}
 		
-		public T next () { // Return data and advance
+		public T next () { //return data and advance
 			Node<T> prev = node;
 			node = node.next;
 			return prev.data;
 		}
-		
-		public void reset() {
-            nextIndex = 0;
-        }
 	}
 }

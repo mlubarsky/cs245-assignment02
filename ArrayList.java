@@ -58,4 +58,20 @@ public class ArrayList<T> implements List<T> {
         }
         arr = copy; //Update arr
     }
+    
+    public class arrayListIterator<T> implements ListIterator<T> {
+        private int nextIndex;
+
+        public arrayListIterator() {
+            nextIndex = 0;
+        }
+
+        public boolean hasNext() { 
+            return nextIndex >= 0 && nextIndex < size;
+        }
+        
+        public T next() {
+            return (T) arr[nextIndex++];
+        }
+    }
 }

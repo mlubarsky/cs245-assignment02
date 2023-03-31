@@ -66,16 +66,12 @@ public class ArrayList<T> implements List<T> {
             nextIndex = 0;
         }
 
-        public boolean hasNext() {
+        public boolean hasNext() { 
             return nextIndex >= 0 && nextIndex < size;
         }
         
         public T next() {
             return (T) arr[nextIndex++];
-        }
-        
-        public void reset() {
-            nextIndex = 0;
         }
     }
 }

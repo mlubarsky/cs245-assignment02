@@ -69,11 +69,15 @@ public class LinkedList<T> implements List<T> {
 		}
 	}
 	
-	public class linkedListIterator<T> implements ListIterator<T>{
+	public Iterator<T> Iterator() {
+        return new ListIterator<>();
+    }
+	
+	public class ListIterator<T> implements Iterator<T>{
 		Node<T> node = (Node<T>) head;
 		public int nextIndex;
 
-        public linkedListIterator() { //constructor
+        public ListIterator() { //constructor
             nextIndex = 0;
         }
 		

@@ -59,10 +59,14 @@ public class ArrayList<T> implements List<T> {
         arr = copy; //Update arr
     }
     
-    public class arrayListIterator<T> implements ListIterator<T> {
+    public Iterator<T> Iterator() {
+        return new ListIterator<>();
+    }
+    
+    public class ListIterator<T> implements Iterator<T> {
         private int nextIndex;
 
-        public arrayListIterator() {
+        public ListIterator() {
             nextIndex = 0;
         }
 
